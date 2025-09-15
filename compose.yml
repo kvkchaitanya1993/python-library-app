@@ -3,41 +3,39 @@ version: "3"
 services:
   db:
     container_name: db
-    image: krishnachaitanya19/pythonprojectlibrary:dbimage1
+    image: krishnachaitanya19/projectpythonlibrary:dbimage1
     ports:
       - "3306:3306"
     networks:
       - mynet
   auth:
     container_name: auth_service
-    image: krishnachaitanya19/pythonprojectlibrary:appimage1
+    image: krishnachaitanya19/projectpythonlibrary:appimage1
     ports:
       - "5001:5001"
     networks:
       - mynet
   books:
     container_name: book_service
-    image: krishnachaitanya19/pythonprojectlibrary:bookimage1
+    image: krishnachaitanya19/projectpythonlibrary:bookimage1
     ports:
       - "5002:5002"
     networks:
       - mynet
   borrow:
     container_name: borrow_Service
-    image: krishnachaitanya19/pythonprojectlibrary:borrowimage1
+    image: krishnachaitanya19/projectpythonlibrary:borrowimage1
     ports:
       - "5003:5003"
     networks:
       - mynet
   appservice:
     container_name: frontend
-    image: krishnachaitanya19/pythonprojectlibrary:appimage1
+    image: krishnachaitanya19/projectpythonlibrary:appimage1
     ports:
       - "5000:5000"
     networks:
       - mynet
-volumes:
-  db_volume: null
 networks:
   mynet:
-    driver: bridge
+    driver: bridge  
