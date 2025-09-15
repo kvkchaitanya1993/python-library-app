@@ -10,7 +10,7 @@ services:
       - mynet
   auth:
     container_name: auth_service
-    image: krishnachaitanya19/projectpythonlibrary:appimage1
+    image: krishnachaitanya19/projectpythonlibrary:authimage1
     ports:
       - "5001:5001"
     networks:
