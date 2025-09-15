@@ -2,34 +2,44 @@
 version: "3"
 services:
   db:
+    container_name: db
     image: krishnachaitanya19/pythonprojeclibrary:dbimage1
     ports:
-      - "3306"
+      - "3306:3306"
     volumes:
       - db_volume:/var/lib/mysql
+    networks:
+      - mynet
   auth:
+    container_name: auth_service
     image: krishnachaitanya19/pythonprojeclibrary:appimage1
     ports:
-      - "5001"
-	deploy:
-      replicas: 2 	
+      - "5001:5001"
+    networks:
+      - mynet
   books:
+    container_name: book_service
     image: krishnachaitanya19/pythonprojeclibrary:bookimage1
     ports:
-      - "5002"
-	deploy:
-      replicas: 2 		  
+      - "5002:5002"
+    networks:
+      - mynet
   borrow:
+    container_name: borrow_Service
     image: krishnachaitanya19/pythonprojeclibrary:borrowimage1
     ports:
-      - "5003"
-	deploy:
-      replicas: 2 		  
+      - "5003:5003"
+    networks:
+      - mynet
   appservice:
+    container_name: frontend
     image: krishnachaitanya19/pythonprojeclibrary:appimage1
     ports:
-      - "5000"
-	deploy:
-      replicas: 2 		  
+      - "5000:5000"
+    networks:
+      - mynet
 volumes:
-  db_volume:
+  db_volume: null
+networks:
+  mynet:
+    driver: bridge
