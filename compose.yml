@@ -3,7 +3,7 @@ version: "3"
 services:
   db:
     container_name: db
-    image: krishnachaitanya19/pythonprojeclibrary:dbimage1
+    image: krishnachaitanya19/pythonprojectlibrary:dbimage1
     ports:
       - "3306:3306"
     volumes:
@@ -12,28 +12,28 @@ services:
       - mynet
   auth:
     container_name: auth_service
-    image: krishnachaitanya19/pythonprojeclibrary:appimage1
+    image: krishnachaitanya19/pythonprojectlibrary:appimage1
     ports:
       - "5001:5001"
     networks:
       - mynet
   books:
     container_name: book_service
-    image: krishnachaitanya19/pythonprojeclibrary:bookimage1
+    image: krishnachaitanya19/pythonprojectlibrary:bookimage1
     ports:
       - "5002:5002"
     networks:
       - mynet
   borrow:
     container_name: borrow_Service
-    image: krishnachaitanya19/pythonprojeclibrary:borrowimage1
+    image: krishnachaitanya19/pythonprojectlibrary:borrowimage1
     ports:
       - "5003:5003"
     networks:
       - mynet
   appservice:
     container_name: frontend
-    image: krishnachaitanya19/pythonprojeclibrary:appimage1
+    image: krishnachaitanya19/pythonprojectlibrary:appimage1
     ports:
       - "5000:5000"
     networks:
