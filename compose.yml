@@ -1,0 +1,35 @@
+---
+version: "3"
+services:
+  db:
+    image: krishnachaitanya19/pythonprojeclibrary:dbimage1
+    ports:
+      - "3306"
+    volumes:
+      - db_volume:/var/lib/mysql
+  auth:
+    image: krishnachaitanya19/pythonprojeclibrary:appimage1
+    ports:
+      - "5001"
+	deploy:
+      replicas: 2 	
+  books:
+    image: krishnachaitanya19/pythonprojeclibrary:bookimage1
+    ports:
+      - "5002"
+	deploy:
+      replicas: 2 		  
+  borrow:
+    image: krishnachaitanya19/pythonprojeclibrary:borrowimage1
+    ports:
+      - "5003"
+	deploy:
+      replicas: 2 		  
+  appservice:
+    image: krishnachaitanya19/pythonprojeclibrary:appimage1
+    ports:
+      - "5000"
+	deploy:
+      replicas: 2 		  
+volumes:
+  db_volume:
